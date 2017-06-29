@@ -1,0 +1,9 @@
+[ui]
+username = Imre Majer <majeri@itp.phys.ethz.ch>
+
+[paths]
+default = ssh://majeri@login.hepforge.org//hepforge/hg/nnlojet/private/nnlojet
+doc     = ssh://majeri@login.hepforge.org//hepforge/hg/nnlojet/private/doc
+
+[extensions]
+hgk=
