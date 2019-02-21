@@ -65,14 +65,25 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # Syntax highlighting (must be sourced at end)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[path]='bold'
+if [[ -a /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[path]='bold'
+fi
 
 # Aliases
 alias ls='ls -alh --color'
-alias vi='nvim'
-alias vimdiff3='nvim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
+if type nvim > /dev/null; then
+    alias vi='nvim'
+    alias vimdiff3='nvim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
+else
+    alias vi='vim'
+fi
 
 # FZF Settings
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+if [[ -a /usr/share/fzf/key-bindings.zsh ]]; then
+    source /usr/share/fzf/key-bindings.zsh
+fi
+
+if [[ -a /usr/share/fzf/completion.zsh ]]; then
+    source /usr/share/fzf/completion.zsh
+fi
