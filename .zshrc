@@ -71,13 +71,8 @@ if [[ -a /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 fi
 
 # Aliases
-alias ls='ls -alh --color'
-if type nvim > /dev/null; then
-    alias vi='nvim'
-    alias vimdiff3='nvim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
-else
-    alias vi='vim'
-fi
+source $HOME/dotfiles/alias.sh
+
 
 # FZF Settings
 if [[ -a /usr/share/fzf/key-bindings.zsh ]]; then
